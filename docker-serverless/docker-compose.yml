@@ -1,0 +1,15 @@
+version: '3'
+
+# builds the api container and sets up the localstack container to run
+
+services:
+   serverless-docker:
+    build: .
+    ports:
+      - '3000:3000'
+      - '49153:49153'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    container_name:  serverless-docker
